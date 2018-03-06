@@ -1,15 +1,19 @@
 sudo: false
-
 language: python
-
 python:
-  - 2.7
-
+- 2.7
 install:
-  - pip install codecov
-
+- pip install codecov
 script:
-  - coverage run tests.py
-
+- coverage run tests.py
 after_success:
-  - codecov
+- codecov
+
+deploy:
+  provider: s3
+  access_key_id: AKIAJWRFBE5WNWOTUCGA
+  secret_access_key:
+    secure: EwErhBmYrHbSOfIrfU+iqHeBbMMjo6VeHTsCtbs6bGzIkCyA+r9sFvWAD9CLlO51sDSBL389UFB3vqZLOqSMOXdLHaX1b8O1fnUegcvMbTsA/FnNjX1TUnF38pQB3k0aournxRDsPwAg37CgWhXsrBQZYbiuV8pB6udkn6sssrnLjk4HbjLwUYcl+8jJgA3oBI75yx15xJ5NNADpU6MC/Yv5sSyCoPf8J5bo3JRl/O/sO1m9yvHcm4+4FWb7FZPkHEdXw/DaToX4Xvrf6+2p5H2WopA+mTnAG2Cwmwnp/HjwKyXicvyoVQDMAGYIl1/iAnn1QSYbDvN3cGGZ9xnzpQvuRvILyAzZ61oxrnLr9X9PYoEt7tvtsXXWRvy8EJbHge/PQqsW7b9AAk2RbXOAoFQnFIMaShLt2W/tXzZeOgCW5ZBM+HJACwdJuLjNTvDCKk8S1KY4BEZvCUwHGjkG+5/RiPWDRh4GR4W15m8QHpywg1i+T32W2I3QGIdzQGHv2yjjxuBEvHYHjeJJNWYh0Ck3JL2C3xxLw64gZ/k4/eFnG7tx2nfaVHCagyLGp5n4AFuVRo0465gHcCXH75HTZOdYzAbeu0iqExkxAskuDQt2PYeDHiKtXz8kuGw0hdl59vkgLnkdcBZ6QntVIyCEdPiJFMP7XWSM2xivjHg4t0E=
+  bucket: testbox847
+  local-dir: html_sample
+  region: us-east-1
